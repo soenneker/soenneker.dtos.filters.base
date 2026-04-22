@@ -1,11 +1,10 @@
-﻿using Soenneker.Tests.Unit;
-using Xunit;
+using Soenneker.Tests.Unit;
 
 namespace Soenneker.Dtos.Filters.Base.Tests;
 
 public sealed class FilterBaseTests : UnitTest
 {
-    [Fact]
+    [Test]
     public void Default()
     {
 
