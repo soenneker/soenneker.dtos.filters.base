@@ -10,6 +10,9 @@ namespace Soenneker.Dtos.Filters.Base;
 [PublicOpenApiObject]
 public abstract class FilterBase
 {
+    /// <summary>
+    /// The field to filter by.
+    /// </summary>
     [JsonPropertyName("field")]
     [JsonProperty("field")]
     public string Field { get; set; } = null!;
