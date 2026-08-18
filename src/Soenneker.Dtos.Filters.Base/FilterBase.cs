@@ -5,13 +5,13 @@ using Soenneker.Attributes.PublicOpenApiObject;
 namespace Soenneker.Dtos.Filters.Base;
 
 /// <summary>
-/// An abstract generic object for handling filtering during querying
+/// Defines the target field shared by structured API query filters.
 /// </summary>
 [PublicOpenApiObject]
 public abstract class FilterBase
 {
     /// <summary>
-    /// The field to filter by.
+    /// Serializable field name to evaluate; supported names are determined by the queried resource.
     /// </summary>
     [JsonPropertyName("field")]
     [JsonProperty("field")]
