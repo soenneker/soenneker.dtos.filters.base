@@ -3,11 +3,22 @@
 [![](https://img.shields.io/nuget/dt/soenneker.dtos.filters.base.svg?style=for-the-badge)](https://www.nuget.org/packages/soenneker.dtos.filters.base/)
 [![](https://img.shields.io/github/actions/workflow/status/soenneker/soenneker.dtos.filters.base/codeql.yml?label=CodeQL&style=for-the-badge)](https://github.com/soenneker/soenneker.dtos.filters.base/actions/workflows/codeql.yml)
 
-# ![](https://user-images.githubusercontent.com/4441470/224455560-91ed3ee7-f510-4041-a8d2-3fc093025112.png) Soenneker.Dtos.Filters.Base
-### A generic object for handling filtering during querying
+# Soenneker.Dtos.Filters.Base
 
-## Installation
+Defines the target field shared by structured API query filters.
 
-```
+## Install
+
+```bash
 dotnet add package Soenneker.Dtos.Filters.Base
 ```
+
+## What you get
+
+- `FilterBase` — Defines the target field shared by structured API query filters.
+
+## API at a glance
+
+| API | What it does | Result / important behavior |
+| --- | --- | --- |
+| `FilterBase.Field` | Serializable field name to evaluate; supported names are determined by the queried resource. | Serializable field name to evaluate; supported names are determined by the queried resource. |
