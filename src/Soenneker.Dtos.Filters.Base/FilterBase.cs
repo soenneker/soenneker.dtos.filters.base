@@ -15,5 +15,5 @@ public abstract class FilterBase
     /// </summary>
     [JsonPropertyName("field")]
     [JsonProperty("field")]
-    public string Field { get; set; } = null!;
+    public required string Field { get; set; }
 }
