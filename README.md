@@ -5,20 +5,35 @@
 
 # Soenneker.Dtos.Filters.Base
 
-Defines the target field shared by structured API query filters.
+Defines the shared target-field property for structured API filter DTOs.
 
-## Install
+## Installation
 
 ```bash
 dotnet add package Soenneker.Dtos.Filters.Base
 ```
 
-## What you get
+`FilterBase` is abstract. Use a concrete package such as `Soenneker.Dtos.Filters.ExactMatch` or `Soenneker.Dtos.Filters.Range`, or derive an application-specific operator:
 
-- `FilterBase` — Defines the target field shared by structured API query filters.
+```csharp
+using System.Text.Json.Serialization;
+using Soenneker.Dtos.Filters.Base;
 
-## API at a glance
+public sealed class ContainsFilter : FilterBase
+{
+    [JsonPropertyName("value")]
+    public string Value { get; set; } = null!;
+}
 
-| API | What it does | Result / important behavior |
-| --- | --- | --- |
-| `FilterBase.Field` | Serializable field name to evaluate; supported names are determined by the queried resource. | Serializable field name to evaluate; supported names are determined by the queried resource. |
+var filter = new ContainsFilter
+{
+    Field = "displayName",
+    Value = "ada"
+};
+```
+
+`Field` serializes as `field` with both System.Text.Json and Newtonsoft.Json. `FilterBase` is marked with `PublicOpenApiObject` for Soenneker OpenAPI discovery.
+
+The model does not define field aliases, validate that a field exists, select an operator, or execute a query. Treat client-provided field names as untrusted input: map them through a server-owned allow-list of queryable fields and parameterize values. Do not concatenate `Field` into SQL, document-store expressions, or reflection paths.
+
+`Field` is not initialized by the base constructor. Concrete filters and API validators must require it before evaluation.
