@@ -32,7 +32,7 @@ var filter = new ContainsFilter
 };
 ```
 
-`Field` serializes as `field` with both System.Text.Json and Newtonsoft.Json. `FilterBase` is marked with `PublicOpenApiObject` for Soenneker OpenAPI discovery.
+`Field` serializes as `field` with System.Text.Json. `FilterBase` is marked with `PublicOpenApiObject` for Soenneker OpenAPI discovery.
 
 The model does not define field aliases, validate that a field exists, select an operator, or execute a query. Treat client-provided field names as untrusted input: map them through a server-owned allow-list of queryable fields and parameterize values. Do not concatenate `Field` into SQL, document-store expressions, or reflection paths.
 

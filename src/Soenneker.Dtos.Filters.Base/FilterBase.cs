@@ -1,5 +1,4 @@
 ﻿using System.Text.Json.Serialization;
-using Newtonsoft.Json;
 using Soenneker.Attributes.PublicOpenApiObject;
 
 namespace Soenneker.Dtos.Filters.Base;
@@ -14,6 +13,5 @@ public abstract class FilterBase
     /// Serializable field name to evaluate; supported names are determined by the queried resource.
     /// </summary>
     [JsonPropertyName("field")]
-    [JsonProperty("field")]
     public required string Field { get; set; }
 }
